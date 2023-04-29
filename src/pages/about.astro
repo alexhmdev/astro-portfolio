@@ -1,10 +1,14 @@
 ---
+import ReactCounter from '../components/ReactCounter';
+import { AngularCounterComponent } from '../components/angular-counter.component';
 import Layout from '../layouts/Layout.astro';
 ---
 
 <Layout title="About me">
   <section class="flex flex-col w-7/12 gap-4">
     <h1 class="text-6xl text-primary font-bold">About me</h1>
+    <ReactCounter client:visible />
+    <AngularCounterComponent name="Franck" client:visible />
     <p class="text-xl text-base-content">
       Est aliquip sint duis culpa. Cupidatat quis enim enim et dolore ullamco.
       Minim et eu est reprehenderit aliquip nostrud esse commodo laboris. Mollit
