@@ -1,0 +1,23 @@
+---
+export interface Props {
+  title: string;
+  quickDescription: string;
+  image: string;
+  url: string;
+}
+
+const { title, quickDescription, image, url } = Astro.props;
+---
+
+<div class="card w-96 bg-base-100 shadow-xl image-full">
+  <figure>
+    <img src={image} alt={title} />
+  </figure>
+  <div class="card-body">
+    <h2 class="card-title">{title}</h2>
+    <p>{quickDescription}</p>
+    <div class="card-actions justify-end">
+      <a class="btn btn-primary" href={url}>Visit</a>
+    </div>
+  </div>
+</div>

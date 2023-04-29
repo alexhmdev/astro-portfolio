@@ -1,0 +1,50 @@
+---
+import ProjectCard from '../../components/ProjectCard.astro';
+import Layout from '../../layouts/Layout.astro';
+
+const projects = await Astro.glob('./*.md');
+---
+
+<Layout title="Projects">
+  <section
+    class="flex flex-col gap-4 content-center items-center justify-center"
+  >
+    <h1
+      class="flex items-center text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary"
+    >
+      This projects are made with <svg
+        xmlns="http://www.w3.org/2000/svg"
+        class="icon icon-tabler icon-tabler-heart m-2"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        stroke-width="2"
+        stroke="#fff"
+        fill="none"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+        <path
+          d="M19.5 12.572l-7.5 7.428l-7.5 -7.428a5 5 0 1 1 7.5 -6.566a5 5 0 1 1 7.5 6.572"
+        ></path>
+      </svg> for the community!
+    </h1>
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+      {
+        projects.map((project) => {
+          const { title, quickDescription, image } = project.frontmatter;
+          let url = project.url;
+          return (
+            <ProjectCard
+              title={title}
+              quickDescription={quickDescription}
+              image={image}
+              url={url}
+            />
+          );
+        })
+      }
+    </div>
+  </section>
+</Layout>
